@@ -1,0 +1,8 @@
+db:
+    image: postgres:9.5.1
+    environment:
+        - POSTGRES_PASSWORD=secret
+    volumes:
+        - ./dbdata/:/var/lib/postgresql/data
+    ports:
+        - "15432:5432"
