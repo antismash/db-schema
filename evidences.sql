@@ -1,10 +1,10 @@
 --- DROP TABLE antismash.evidences;
 
 CREATE TABLE antismash.evidences (
-    id	serial NOT NULL,
+    evidence_id	serial NOT NULL,
     name	text,
     description	text,
-    CONSTRAINT evidences_pkey PRIMARY KEY (id),
+    CONSTRAINT evidences_pkey PRIMARY KEY (evidence_id),
     CONSTRAINT evidences_name_unique UNIQUE (name)
 );
 COMMENT ON TABLE antismash.evidences
