@@ -21,7 +21,7 @@ TABLES="sampling_sites evidences bgc_types compounds monomers"
 TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences loci operons "
 TABLES="$TABLES gene_functional_classes genes biosynthetic_gene_clusters domains"
 # tables that create many-to-many relations
-TABLES="$TABLES rel_clusters_types rel_clusters_compounds"
+TABLES="$TABLES rel_clusters_types rel_clusters_compounds rel_compounds_monomers"
 
 
 for t in $TABLES; do
