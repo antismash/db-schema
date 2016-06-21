@@ -1,5 +1,5 @@
 --- Many to many relation for clusters to compounds
-CREATE TABLE rel_clusters_compounds (
+CREATE TABLE antismash.rel_clusters_compounds (
     bgc_id	int4,
     compound_id	int4,
     CONSTRAINT rel_clusters_compounds_pkey PRIMARY KEY (bgc_id, compound_id),

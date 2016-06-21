@@ -1,5 +1,5 @@
 --- Many to many relation for biosynthetic_gene_clusters and bgc_types
-CREATE TABLE rel_clusters_types (
+CREATE TABLE antismash.rel_clusters_types (
     bgc_id	int4,
     bgc_type_id	int4,
     CONSTRAINT rel_clusters_types_pkey PRIMARY KEY (bgc_id, bgc_type_id),
