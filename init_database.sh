@@ -15,7 +15,14 @@ PSQL_AS="$PSQL $PSQL_DB"
 $PSQL -tc "SELECT 1 FROM pg_database WHERE datname = '${PSQL_DB}';" | grep -q 1 || $PSQL -c "CREATE DATABASE $PSQL_DB;"
 $PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};"
 
-for t in sampling_sites evidences bgc_types samples isolates genomes dna_sequences loci operons gene_functional_classes genes; do
+# tables not depending on other tables
+TABLES="sampling_sites evidences bgc_types"
+# tables depending on other tables. Please keep the order intact
+TABLES="$TABLES samples isolates genomes dna_sequences loci operons"
+TABLES="$TABLES gene_functional_classes genes"
+
+
+for t in $TABLES; do
     echo "Processing $t"
     if [ -n "$ASDB_REINIT" ]; then
         echo "Dropping old table content"
