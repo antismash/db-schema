@@ -8,15 +8,23 @@ CREATE TABLE antismash.functional_classes (
 COMMENT ON TABLE antismash.functional_classes IS
   'An index of possible functional classes';
 
+--- Basic functional classes
+INSERT INTO antismash.functional_classes (name, parent)
+SELECT val.name, val.parent::int4
+FROM (
+    VALUES
+        ('biosynthetic', NULL),
+        ('regulator', NULL),
+        ('transporter', NULL),
+        ('other', NULL)
+    ) val ( name, parent );
+
+
+--- Advanced classes
 INSERT INTO antismash.functional_classes (name, parent)
 SELECT val.name, f.functional_class_id
 FROM (
     VALUES
-        --- Basic functional classes
-        ('biosynthetic', NULL),
-        ('regulator', NULL),
-        ('transporter', NULL),
-        --- Advanced classes
         ('bgc_seed', 'biosynthetic'),
         ('smcog_derived', 'biosynthetic')
     ) val ( name, parent_name )
