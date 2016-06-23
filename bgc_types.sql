@@ -4,26 +4,33 @@ CREATE TABLE antismash.bgc_types (
     description	text,
     parent	int4,
     CONSTRAINT bgc_types_pkey PRIMARY KEY (bgc_type_id),
-    CONSTRAINT bgc_tyoes_term_unique UNIQUE (term),
+    CONSTRAINT bgc_types_term_unique UNIQUE (term),
     CONSTRAINT bgc_types_parent_fkey FOREIGN KEY (parent) REFERENCES antismash.bgc_types (bgc_type_id)
 );
 
 COMMENT ON TABLE antismash.bgc_types IS
   'Biosynthetic gene cluster types. Basic types according to MIBiG spec.';
 
+--- basic MIBiG types
 INSERT INTO antismash.bgc_types (term, description, parent)
-SELECT val.term, val.description, f.bgc_type_id
+SELECT val.term, val.description, val.parent::int4
 FROM (
     VALUES
-        --- basic MIBiG types
         ('pks', 'Polyketide', NULL),
         ('nrp', 'Nonribosomal peptide', NULL),
         ('ripp', 'Ribosomally synthesized and post-translationally modified peptide', NULL),
         ('terpene', 'Terpene', NULL),
         ('saccharide', 'Saccharide', NULL),
         ('alkaloid', 'Alkaloid', NULL),
-        ('other', 'Other', NULL),
-        --- More detailed antiSMASH types
+        ('other', 'Other', NULL)
+    ) val ( term, description, parent );
+
+
+--- More detailed antiSMASH types
+INSERT INTO antismash.bgc_types (term, description, parent)
+SELECT val.term, val.description, f.bgc_type_id
+FROM (
+    VALUES
         ('t1pks', 'Type I polyketide', 'pks'),
         ('transatpks', 'Trans-AT polyketide', 'pks'),
         ('lantipeptide', 'Lanthipeptide', 'ripp')
