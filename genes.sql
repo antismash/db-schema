@@ -11,7 +11,7 @@ CREATE TABLE antismash.genes (
     locus	int4,
     operon	int4,
     CONSTRAINT genes_pkey PRIMARY KEY (gene_id),
-    CONSTRAINT genes_functional_class_fkey FOREIGN KEY (functional_class) REFERENCES antismash.gene_functional_classes (functional_class_id),
+    CONSTRAINT genes_functional_class_fkey FOREIGN KEY (functional_class) REFERENCES antismash.functional_classes (functional_class_id),
     CONSTRAINT genes_evidence_fkey FOREIGN KEY (evidence) REFERENCES antismash.evidences (evidence_id),
     CONSTRAINT genes_locus_fkey FOREIGN KEY (locus) REFERENCES antismash.loci (locus_id),
     CONSTRAINT genes_operon_fkey FOREIGN KEY (operon) REFERENCES antismash.operons (operon_id)
