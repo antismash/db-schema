@@ -1,5 +1,3 @@
-DROP TABLE antismash.dna_sequences;
-
 CREATE TABLE antismash.dna_sequences (
     sequence_id	serial NOT NULL,
     dna	text,

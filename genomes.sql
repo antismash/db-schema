@@ -1,5 +1,3 @@
-DROP TABLE antismash.genomes;
-
 CREATE TABLE antismash.genomes (
     genome_id	serial NOT NULL,
     taxon	int4,

@@ -1,7 +1,3 @@
--- Table: antismash.isolates
-
-DROP TABLE antismash.isolates;
-
 CREATE TABLE antismash.isolates
 (
   isolate_id	serial NOT NULL,
