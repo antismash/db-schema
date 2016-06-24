@@ -26,7 +26,7 @@ TABLES="sampling_sites evidences bgc_types compounds monomers"
 # tables depending on other tables. Please keep the order intact
 TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences loci operons "
 TABLES="$TABLES functional_classes genes biosynthetic_gene_clusters as_domains"
-TABLES="$TABLES smcogs"
+TABLES="$TABLES smcogs smcog_hits"
 # tables that create many-to-many relations
 TABLES="$TABLES rel_clusters_types rel_clusters_compounds rel_compounds_monomers"
 TABLES="$TABLES rel_as_domains_monomers"
