@@ -26,6 +26,6 @@ SELECT val.name, f.functional_class_id
 FROM (
     VALUES
         ('bgc_seed', 'biosynthetic'),
-        ('smcog_derived', 'biosynthetic')
+        ('biosynthetic_smcog', 'biosynthetic')
     ) val ( name, parent_name )
 LEFT JOIN antismash.functional_classes f ON val.parent_name = f.name;
