@@ -1,7 +1,7 @@
 CREATE TABLE antismash.smcog_hits (
     smcog_hit_id	serial NOT NULL,
-    score	float4,
-    evalue	float4,
+    score	float8,
+    evalue	float8,
     image_path	text,
     smcog_class	int4,
     CONSTRAINT smcog_hits_pkey PRIMARY KEY (smcog_hit_id),
