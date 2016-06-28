@@ -1,5 +1,6 @@
 CREATE TABLE antismash.biosynthetic_gene_clusters (
     bgc_id	serial NOT NULL,
+    cluster_number	int4,
     locus	int4,
     evidence	int4,
     CONSTRAINT biosynthetic_gene_clusters_pkey PRIMARY KEY (bgc_id),
