@@ -14,3 +14,5 @@ CREATE TABLE antismash.compounds (
 
 COMMENT ON TABLE antismash.compounds IS
   'A (predicted) checical compound.';
+
+CREATE INDEX compounds_peptides_sequence_idx ON antismash.compounds (peptide_sequence);
