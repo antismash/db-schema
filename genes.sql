@@ -21,3 +21,5 @@ CREATE TABLE antismash.genes (
 );
 COMMENT ON TABLE antismash.genes IS
   'A gene record.';
+
+CREATE INDEX genes_locus_idx ON antismash.genes (locus);
