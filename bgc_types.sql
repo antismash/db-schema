@@ -68,6 +68,7 @@ FROM (
         ('furan', 'Furan', 'other'),
         ('hserlactone', 'Homoserine lactone', 'other'),
         ('phenazine', 'Phenazine', 'other'),
-        ('phosphonate', 'Phosphonate', 'other')
+        ('phosphonate', 'Phosphonate', 'other'),
+        ('fused', 'Pheganomycin-like ligase', 'other')
     ) val ( term, description, parent_term )
 LEFT JOIN antismash.bgc_types f ON val.parent_term = f.term;
