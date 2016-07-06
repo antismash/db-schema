@@ -5,8 +5,8 @@ CREATE TABLE antismash.genomes (
     bio_sample	text,
     isolate	int4,
     CONSTRAINT genomes_pkey PRIMARY KEY (genome_id),
-    CONSTRAINT genomes_taxon_fkey FOREIGN KEY (taxon) REFERENCES antismash.taxa (tax_id),
-    CONSTRAINT genomes_isolate_fkey FOREIGN KEY (isolate) REFERENCES antismash.isolates (isolate_id)
+    CONSTRAINT genomes_taxon_fkey FOREIGN KEY (taxon) REFERENCES antismash.taxa (tax_id) ON DELETE CASCADE,
+    CONSTRAINT genomes_isolate_fkey FOREIGN KEY (isolate) REFERENCES antismash.isolates (isolate_id) ON DELETE CASCADE
 );
 COMMENT ON TABLE antismash.genomes IS
     'Information on a genome';

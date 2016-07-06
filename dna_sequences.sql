@@ -8,6 +8,6 @@ CREATE TABLE antismash.dna_sequences (
     version	int4,
     genome	int4,
     CONSTRAINT dna_sequences_pkey PRIMARY KEY (sequence_id),
-    CONSTRAINT dna_sequences_genome_fkey FOREIGN KEY (genome) REFERENCES antismash.genomes (genome_id)
+    CONSTRAINT dna_sequences_genome_fkey FOREIGN KEY (genome) REFERENCES antismash.genomes (genome_id) ON DELETE CASCADE
 );
 

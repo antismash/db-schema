@@ -8,7 +8,7 @@ CREATE TABLE antismash.clusterblast_hits (
     bgc_id	int4,
     CONSTRAINT clusterblast_hits_pkey PRIMARY KEY (clusterblast_hit_id),
     CONSTRAINT clusterblast_hits_algorithm_id_fkey FOREIGN KEY (algorithm_id) REFERENCES antismash.clusterblast_algorithms (algorithm_id),
-    CONSTRAINT clusterblast_hits_bgc_id_fkey FOREIGN KEY (bgc_id) REFERENCES antismash.biosynthetic_gene_clusters (bgc_id)
+    CONSTRAINT clusterblast_hits_bgc_id_fkey FOREIGN KEY (bgc_id) REFERENCES antismash.biosynthetic_gene_clusters (bgc_id) ON DELETE CASCADE
 );
 
 COMMENT ON TABLE antismash.clusterblast_hits IS
