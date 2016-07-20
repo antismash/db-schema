@@ -13,3 +13,5 @@ CREATE TABLE antismash.clusterblast_hits (
 
 COMMENT ON TABLE antismash.clusterblast_hits IS
   'ClusterBlast hit storage, also for Sub- and KnownClusterblast.';
+
+CREATE INDEX clusterblast_hits_bgc_id_rank_algorithm_id_idx ON antismash.clusterblast_hits (bgc_id, rank, algorithm_id);
