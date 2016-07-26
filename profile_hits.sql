@@ -12,3 +12,5 @@ CREATE TABLE antismash.profile_hits (
 
 COMMENT ON TABLE antismash.profile_hits IS
   'A hit against one of the cluster detection profiles in a gene';
+
+CREATE INDEX profile_hits_gene_id_idx ON antismash.profile_hits (gene_id);

@@ -10,3 +10,5 @@ CREATE TABLE antismash.smcog_hits (
 );
 COMMENT ON TABLE antismash.smcog_hits IS
   'Metadata about an smCoG hit';
+
+CREATE INDEX smcog_hits_gene_id_idx ON antismash.smcog_hits (gene_id);

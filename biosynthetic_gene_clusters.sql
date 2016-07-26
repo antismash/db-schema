@@ -10,3 +10,5 @@ CREATE TABLE antismash.biosynthetic_gene_clusters (
 
 COMMENT ON TABLE antismash.biosynthetic_gene_clusters IS
   'A biosynthetic gene cluster as predicted by antiSMASH.';
+
+CREATE INDEX biosynthetic_gene_clusters_locus_idx ON antismash.biosynthetic_gene_clusters (locus);
