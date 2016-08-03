@@ -1,11 +1,56 @@
 CREATE TABLE antismash.monomers (
     monomer_id	serial NOT NULL,
     name	text,
+    description	text,
     smile	text,
     three_letter_code	char(3),
     single_letter_code	char(1),
-    CONSTRAINT monomers_pkey PRIMARY KEY (monomer_id)
+    CONSTRAINT monomers_pkey PRIMARY KEY (monomer_id),
+    CONSTRAINT monomers_name_unique UNIQUE (name)
 );
 
 COMMENT ON TABLE antismash.monomers IS
   'A basic building block of a compound.';
+
+INSERT INTO antismash.monomers (name, description, three_letter_code, single_letter_code) VALUES
+    ('aad', '2-aminoadipic acid', NULL, NULL),
+    ('abu', '2-aminobutyric acid', NULL, NULL),
+    ('ala', 'Alanine', 'Ala', 'A'),
+    ('arg', 'Arginine', 'Arg', 'R'),
+    ('asn', 'Asparagine', 'Asn', 'N'),
+    ('asp', 'Aspartic acid', 'Asp', 'D'),
+    ('bht', 'beta-hydroxytyrosine', NULL, NULL),
+    ('ccmal', 'reduced malonyl', NULL, NULL),
+    ('ccmmal', 'reduced methylmalonyl', NULL, NULL),
+    ('ccmxmal', 'reduced malonyl methyl ester', NULL, NULL),
+    ('cys', 'Cysteine', 'Cys', 'C'),
+    ('dab', '2,4-diaminobutyric acid', NULL, NULL),
+    ('dhb', '2,3-didehydrobutyrine', NULL, NULL),
+    ('dhpg', '3,5-dihydroxyphenylglycine', NULL, NULL),
+    ('gln', 'Glutamine', 'Gln', 'Q'),
+    ('glu', 'Glutamic acid', 'Glu', 'E'),
+    ('gly', 'Glycine', 'Gly', 'G'),
+    ('his', 'Histidine', 'His', 'H'),
+    ('hpg', 'hydroxyphenylglycine', NULL, NULL),
+    ('ile', 'Isoleucine', 'Ile', 'I'),
+    ('leu', 'Leucine', 'Leu', 'L'),
+    ('lys', 'Lysine', 'Lys', 'K'),
+    ('mal', 'malonyl', NULL, NULL),
+    ('mmal', 'methyl-malonyl', NULL, NULL),
+    ('nrp', 'unknown nonribosomal peptide', NULL, NULL),
+    ('ohmal', 'hydroxymalonyl', NULL, NULL),
+    ('ohmmal', 'hydoxymethylmalonyl', NULL, NULL),
+    ('ohmxmal', 'hydroxymalonyl methyl ester', NULL, NULL),
+    ('orn', 'Ornithine', NULL, NULL),
+    ('phe', 'Phenylalanine', 'Phe', 'F'),
+    ('pip', 'pipecolic acid', NULL, NULL),
+    ('pk', 'unknown polyketide', NULL, NULL),
+    ('pro', 'Proline', 'Pro', 'P'),
+    ('redmal', 'fully reduced malonyl', NULL, NULL),
+    ('redmmal', 'fully reduced methylmalonyl', NULL, NULL),
+    ('redmxmal', 'fully reduced malonyl methyl ester', NULL, NULL),
+    ('ser', 'Serine', 'Ser', 'S'),
+    ('thr', 'Threonine', 'Thr', 'T'),
+    ('trp', 'Tryptophan','Trp', 'W'),
+    ('tyr', 'Tyrosine', 'Tyr', 'Y'),
+    ('val', 'Valine', 'Val', 'V');
