@@ -3,9 +3,9 @@ CREATE TABLE antismash.loci (
     start_pos	int4,
     end_pos	int4,
     strand	char(1),
-    sequence	int4,
+    sequence_id	int4,
     CONSTRAINT loci_pkey PRIMARY KEY (locus_id),
-    CONSTRAINT loci_sequence_fkey FOREIGN KEY (sequence) REFERENCES antismash.dna_sequences (sequence_id) ON DELETE CASCADE
+    CONSTRAINT loci_sequence_id_fkey FOREIGN KEY (sequence_id) REFERENCES antismash.dna_sequences (sequence_id) ON DELETE CASCADE
 );
 
 CREATE INDEX loci_start_end_range_idx ON antismash.loci USING GIST (int4range(start_pos, end_pos));
