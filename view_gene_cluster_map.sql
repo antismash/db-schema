@@ -12,7 +12,7 @@ LEFT JOIN LATERAL (
     SELECT
         bgc_id
     FROM antismash.biosynthetic_gene_clusters bgc
-    JOIN antismash.loci l ON bgc.locus = l.locus_id
+    JOIN antismash.loci l USING (locus_id)
     JOIN antismash.dna_sequences seq USING (sequence_id)
     WHERE
         seq.sequence_id = e1.sequence_id AND
