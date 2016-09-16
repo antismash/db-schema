@@ -2,18 +2,18 @@ CREATE TABLE antismash.bgc_types (
     bgc_type_id	serial NOT NULL,
     term	text,
     description	text,
-    parent	int4,
+    parent_id	int4,
     CONSTRAINT bgc_types_pkey PRIMARY KEY (bgc_type_id),
     CONSTRAINT bgc_types_term_unique UNIQUE (term),
-    CONSTRAINT bgc_types_parent_fkey FOREIGN KEY (parent) REFERENCES antismash.bgc_types (bgc_type_id)
+    CONSTRAINT bgc_types_parent_id_fkey FOREIGN KEY (parent_id) REFERENCES antismash.bgc_types (bgc_type_id)
 );
 
 COMMENT ON TABLE antismash.bgc_types IS
   'Biosynthetic gene cluster types. Basic types according to MIBiG spec.';
 
 --- basic MIBiG types
-INSERT INTO antismash.bgc_types (term, description, parent)
-SELECT val.term, val.description, val.parent::int4
+INSERT INTO antismash.bgc_types (term, description, parent_id)
+SELECT val.term, val.description, val.parent_id::int4
 FROM (
     VALUES
         ('pks', 'Polyketide', NULL),
@@ -23,11 +23,11 @@ FROM (
         ('saccharide', 'Saccharide', NULL),
         ('alkaloid', 'Alkaloid', NULL),
         ('other', 'Other', NULL)
-    ) val ( term, description, parent );
+    ) val ( term, description, parent_id );
 
 
 --- More detailed antiSMASH types
-INSERT INTO antismash.bgc_types (term, description, parent)
+INSERT INTO antismash.bgc_types (term, description, parent_id)
 SELECT val.term, val.description, f.bgc_type_id
 FROM (
     VALUES
