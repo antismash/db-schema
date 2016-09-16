@@ -7,5 +7,6 @@ CREATE TABLE antismash.taxa (
     family	text,
     genus	text,
     species	text,
+    strain	text,
     CONSTRAINT taxa_pkey PRIMARY KEY (tax_id)
 );
