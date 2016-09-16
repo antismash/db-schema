@@ -3,7 +3,7 @@ SELECT sequence_id, bgc_id, gene_id FROM (
     SELECT
         gene_id, start_pos, end_pos, seq.sequence_id
     FROM antismash.genes g
-    JOIN antismash.loci l ON g.locus = l.locus_id
+    JOIN antismash.loci l USING (locus_id)
     JOIN antismash.dna_sequences seq USING (sequence_id)
     ORDER BY
     gene_id

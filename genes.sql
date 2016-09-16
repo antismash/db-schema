@@ -1,24 +1,24 @@
 CREATE TABLE antismash.genes (
     gene_id	serial NOT NULL,
-    functional_class	int4,
+    functional_class_id	int4,
     specificity	int4,
-    evidence	int4,
+    evidence_id	int4,
     locus_tag	text,
     acc	text,
     ncbi_gene_id	text,
     key_val_column	int4,
     label	text,
     translation	text,
-    locus	int4,
-    operon	int4,
+    locus_id	int4,
+    operon_id	int4,
     CONSTRAINT genes_pkey PRIMARY KEY (gene_id),
-    CONSTRAINT genes_functional_class_fkey FOREIGN KEY (functional_class) REFERENCES antismash.functional_classes (functional_class_id),
-    CONSTRAINT genes_evidence_fkey FOREIGN KEY (evidence) REFERENCES antismash.evidences (evidence_id),
-    CONSTRAINT genes_locus_fkey FOREIGN KEY (locus) REFERENCES antismash.loci (locus_id) ON DELETE CASCADE,
-    CONSTRAINT genes_operon_fkey FOREIGN KEY (operon) REFERENCES antismash.operons (operon_id)
+    CONSTRAINT genes_functional_class_id_fkey FOREIGN KEY (functional_class_id) REFERENCES antismash.functional_classes (functional_class_id),
+    CONSTRAINT genes_evidence_id_fkey FOREIGN KEY (evidence_id) REFERENCES antismash.evidences (evidence_id),
+    CONSTRAINT genes_locus_id_fkey FOREIGN KEY (locus_id) REFERENCES antismash.loci (locus_id) ON DELETE CASCADE,
+    CONSTRAINT genes_operon_id_fkey FOREIGN KEY (operon_id) REFERENCES antismash.operons (operon_id)
 );
 COMMENT ON TABLE antismash.genes IS
   'A gene record.';
 
-CREATE INDEX genes_locus_idx ON antismash.genes (locus);
+CREATE INDEX genes_locus_id_idx ON antismash.genes (locus_id);
 CREATE INDEX genes_locus_tag_idx ON antismash.genes (locus_tag);
