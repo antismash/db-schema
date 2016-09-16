@@ -2,15 +2,15 @@ CREATE TABLE antismash.smcogs (
     smcog_id	serial NOT NULL,
     name	text,
     description	text,
-    functional_class	int4,
+    functional_class_id	int4,
     CONSTRAINT smcogs_pkey PRIMARY KEY (smcog_id),
-    CONSTRAINT smcogs_functional_class_fkey FOREIGN KEY (functional_class) REFERENCES antismash.functional_classes (functional_class_id)
+    CONSTRAINT smcogs_functional_class_id_fkey FOREIGN KEY (functional_class_id) REFERENCES antismash.functional_classes (functional_class_id)
 );
 COMMENT ON TABLE antismash.smcogs IS
   'Secondary Metabolite specific Clusters of Orthologous Groups (smCoGs)';
 
 
-INSERT INTO antismash.smcogs (name, description, functional_class)
+INSERT INTO antismash.smcogs (name, description, functional_class_id)
 SELECT val.name, val.description, f.functional_class_id
 FROM (
     VALUES
