@@ -5,4 +5,4 @@ db:
     volumes:
         - ./dbdata/:/var/lib/postgresql/data
     ports:
-        - "15432:5432"
+        - "5432:5432"

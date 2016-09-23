@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 PSQL_HOST=localhost
-PSQL_PORT=15432
+PSQL_PORT=5432
 PSQL_USER=postgres
 PSQL_DB=antismash
 PSQL_SCHEMA=antismash
