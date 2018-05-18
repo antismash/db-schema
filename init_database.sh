@@ -25,13 +25,13 @@ $PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};"
 TABLES="sampling_sites evidences bgc_types compounds monomers taxa profiles as_domain_profiles"
 # tables depending on other tables. Please keep the order intact
 TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences loci operons "
-TABLES="$TABLES functional_classes smcogs genes biosynthetic_gene_clusters"
+TABLES="$TABLES functional_classes smcogs cdses genes biosynthetic_gene_clusters"
 TABLES="$TABLES as_domains clusterblast_algorithms clusterblast_hits"
 # tables that create many-to-many relations
 TABLES="$TABLES rel_clusters_types rel_clusters_compounds rel_compounds_monomers"
 TABLES="$TABLES rel_as_domains_monomers smcog_hits profile_hits"
 # views that depend on all this stuff
-TABLES="$TABLES view_gene_cluster_map view_sequence_gc_content"
+TABLES="$TABLES view_cds_cluster_map view_sequence_gc_content view_sequence_lengths"
 
 
 for t in $TABLES; do

@@ -1,12 +1,12 @@
-CREATE MATERIALIZED VIEW antismash.gene_cluster_map AS
-SELECT sequence_id, bgc_id, gene_id FROM (
+CREATE MATERIALIZED VIEW antismash.cds_cluster_map AS
+SELECT sequence_id, bgc_id, cds_id FROM (
     SELECT
-        gene_id, start_pos, end_pos, seq.sequence_id
-    FROM antismash.genes g
+        cds_id, start_pos, end_pos, seq.sequence_id
+    FROM antismash.cdses g
     JOIN antismash.loci l USING (locus_id)
     JOIN antismash.dna_sequences seq USING (sequence_id)
     ORDER BY
-    gene_id
+    cds_id
 ) e1
 LEFT JOIN LATERAL (
     SELECT
