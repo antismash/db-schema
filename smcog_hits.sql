@@ -5,7 +5,7 @@ CREATE TABLE antismash.smcog_hits (
     evalue	float8,
     image_path	text,
     CONSTRAINT smcog_hits_pkey PRIMARY KEY (smcog_id, cds_id),
-    CONSTRAINT smcog_hits_cds_id_fkey FOREIGN KEY (cds_id) REFERENCES antismash.cdses (cds_id) ON DELETE CASCADE,
+    CONSTRAINT smcog_hits_cds_id_fkey FOREIGN KEY (cds_id) REFERENCES antismash.cdss (cds_id) ON DELETE CASCADE,
     CONSTRAINT smcog_hits_smcog_id_fkey FOREIGN KEY (smcog_id) REFERENCES antismash.smcogs (smcog_id)
 );
 COMMENT ON TABLE antismash.smcog_hits IS

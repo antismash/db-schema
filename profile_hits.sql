@@ -6,7 +6,7 @@ CREATE TABLE antismash.profile_hits (
     bitscore	float8,
     seeds	int4,
     CONSTRAINT profile_hits_pkey PRIMARY KEY (profile_hit_id),
-    CONSTRAINT profile_hits_cds_id_fkey FOREIGN KEY (cds_id) REFERENCES antismash.cdses (cds_id) ON DELETE CASCADE,
+    CONSTRAINT profile_hits_cds_id_fkey FOREIGN KEY (cds_id) REFERENCES antismash.cdss (cds_id) ON DELETE CASCADE,
     CONSTRAINT profile_hits_name_fkey FOREIGN KEY (name) REFERENCES antismash.profiles (name)
 );
 

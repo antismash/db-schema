@@ -17,7 +17,7 @@ CREATE TABLE antismash.as_domains (
     CONSTRAINT as_domains_pkey PRIMARY KEY (as_domain_id),
     CONSTRAINT as_domains_as_domain_profile_id_fkey FOREIGN KEY (as_domain_profile_id) REFERENCES antismash.as_domain_profiles (as_domain_profile_id) ON DELETE CASCADE,
     CONSTRAINT as_domains_locus_id_fkey FOREIGN KEY (locus_id) REFERENCES antismash.loci (locus_id) ON DELETE CASCADE,
-    CONSTRAINT as_domains_cds_id_fkey FOREIGN KEY (cds_id) REFERENCES antismash.cdses (cds_id) ON DELETE CASCADE
+    CONSTRAINT as_domains_cds_id_fkey FOREIGN KEY (cds_id) REFERENCES antismash.cdss (cds_id) ON DELETE CASCADE
 );
 
 COMMENT ON TABLE antismash.as_domains IS
