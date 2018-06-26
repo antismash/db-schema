@@ -33,7 +33,8 @@ TABLES="$TABLES rel_clusters_types rel_clusters_compounds rel_compounds_monomers
 TABLES="$TABLES rel_as_domains_monomers smcog_hits profile_hits"
 # views that depend on all this stuff
 TABLES="$TABLES view_cds_cluster_map view_sequence_gc_content view_sequence_lengths"
-
+# precalculated data, load this last
+TABLES="$TABLES preload_taxa"
 
 for t in $TABLES; do
     echo "Processing $t"
