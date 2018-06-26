@@ -35,7 +35,8 @@ FROM (
         ('transatpks', 'Trans-AT polyketide', 'pks'),
         ('t2pks', 'Type II polyketide', 'pks'),
         ('t3pks', 'Type III polyketide', 'pks'),
-        ('otherks', 'Other types of polyketides', 'pks'),
+        ('otherks', 'hglE-type polyketide', 'pks'),
+        ('ppysks', 'PPY-like pyrone', 'pks'),
         ('arylpolyene', 'Aryl polyene', 'other'),
         ('resorcinol', 'Resorcinol', 'other'),
         ('ladderane', 'Ladderane', 'other'),
@@ -69,6 +70,8 @@ FROM (
         ('hserlactone', 'Homoserine lactone', 'other'),
         ('phenazine', 'Phenazine', 'other'),
         ('phosphonate', 'Phosphonate', 'other'),
-        ('fused', 'Pheganomycin-like ligase', 'other')
+        ('fused', 'Pheganomycin-like ligase', 'other'),
+        ('pdbe', 'Polybrominated diphenyl ether', 'other'),
+        ('acyl_amino_acids', 'N-acyl amino acid cluster', 'other')
     ) val ( term, description, parent_term )
 LEFT JOIN antismash.bgc_types f ON val.parent_term = f.term;
