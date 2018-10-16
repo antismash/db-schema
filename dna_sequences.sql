@@ -3,6 +3,7 @@ CREATE TABLE antismash.dna_sequences (
     dna	text,
     md5	text,
     acc	text,
+    definition	text,
     contig_type	int4,
     chromosome_type	int4,
     version	int4,
