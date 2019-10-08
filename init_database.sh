@@ -27,6 +27,7 @@ TABLES="$TABLES as_domain_profiles pfams "
 TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences loci "
 TABLES="$TABLES functional_classes smcogs cdss genes"
 TABLES="$TABLES regions candidates protoclusters"
+TABLES="$TABLES t2pks"
 TABLES="$TABLES as_domains clusterblast_algorithms clusterblast_hits tta_codons"
 TABLES="$TABLES pfam_domains filenames"
 # tables that create many-to-many relations
