@@ -21,7 +21,7 @@ fi
 $PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};"
 
 # tables not depending on other tables
-TABLES="sampling_sites evidences bgc_types compounds monomers taxa profiles "
+TABLES="sampling_sites bgc_types compounds monomers taxa profiles "
 TABLES="$TABLES as_domain_profiles terpenes"
 # tables depending on other tables. Please keep the order intact
 TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences loci operons "
