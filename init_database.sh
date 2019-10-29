@@ -24,7 +24,7 @@ $PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};"
 TABLES="sampling_sites bgc_types substrates taxa profiles "
 TABLES="$TABLES as_domain_profiles pfams gene_ontologies resfams"
 # tables depending on other tables. Please keep the order intact
-TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences loci "
+TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences"
 TABLES="$TABLES regions candidates protoclusters"
 TABLES="$TABLES functional_classes smcogs cdss genes"
 TABLES="$TABLES ripps t2pks monomers modules"
