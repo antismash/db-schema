@@ -13,13 +13,10 @@ PSQL_AS="$PSQL $PSQL_DB"
 
 $PSQL -tc "SELECT 1 FROM pg_database WHERE datname = '${PSQL_DB}';" | grep -q 1 || $PSQL -c "CREATE DATABASE $PSQL_DB;"
 
-if [ -n `echo -n $ASDB_REINIT` ]; then
-    echo "Clearing out the whole schema"
-    $PSQL_AS -c "DROP SCHEMA IF EXISTS ${PSQL_SCHEMA} CASCADE;"
-fi
+echo "Clearing out the whole schema"
+$PSQL_AS -c "DROP SCHEMA IF EXISTS ${PSQL_SCHEMA} CASCADE;" > /dev/null 2>&1
 
-$PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};"
-
+$PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};" > /dev/null 2>&1
 # tables not depending on other tables
 TABLES="sampling_sites bgc_types substrates taxa profiles "
 TABLES="$TABLES as_domain_profiles pfams gene_ontologies resfams"
