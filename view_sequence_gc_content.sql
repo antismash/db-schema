@@ -14,4 +14,4 @@ LANGUAGE SQL;
 
 --- Last but not least, create a materialized view to store this for all genomes
 CREATE MATERIALIZED VIEW antismash.sequence_gc_content AS
-SELECT sequence_id, antismash.calc_gc_content(dna) AS gc_content FROM antismash.dna_sequences;
+SELECT accession, antismash.calc_gc_content(dna) AS gc_content FROM antismash.dna_sequences;
