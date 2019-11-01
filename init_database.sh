@@ -22,7 +22,7 @@ $PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};"
 
 # tables not depending on other tables
 TABLES="sampling_sites bgc_types compounds monomers taxa profiles "
-TABLES="$TABLES as_domain_profiles terpenes"
+TABLES="$TABLES as_domain_profiles "
 # tables depending on other tables. Please keep the order intact
 TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences loci "
 TABLES="$TABLES functional_classes smcogs cdss genes biosynthetic_gene_clusters"
@@ -30,7 +30,7 @@ TABLES="$TABLES as_domains clusterblast_algorithms clusterblast_hits tta_codons"
 TABLES="$TABLES pfams pfam_domains filenames"
 # tables that create many-to-many relations
 TABLES="$TABLES rel_clusters_types rel_clusters_compounds rel_compounds_monomers"
-TABLES="$TABLES rel_as_domains_monomers smcog_hits profile_hits terpene_cyclisations"
+TABLES="$TABLES rel_as_domains_monomers smcog_hits profile_hits "
 # views that depend on all this stuff
 TABLES="$TABLES view_cds_cluster_map view_sequence_gc_content view_sequence_lengths"
 # precalculated data, load this last
