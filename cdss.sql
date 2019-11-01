@@ -7,6 +7,7 @@ CREATE TABLE antismash.cdss (
     protein_id	text,
     translation	text,
     location text NOT NULL,
+    region_id   int4 REFERENCES antismash.regions ON DELETE CASCADE,
     CONSTRAINT cdss_pkey PRIMARY KEY (cds_id),
     CONSTRAINT cdss_functional_class_id_fkey FOREIGN KEY (functional_class_id) REFERENCES antismash.functional_classes (functional_class_id)
 );
