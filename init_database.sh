@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -o errexit
 set -o nounset
 
 PSQL_HOST=localhost
@@ -38,6 +37,17 @@ TABLES="$TABLES view_cds_cluster_map view_sequence_gc_content view_sequence_leng
 TABLES="$TABLES preload_taxa"
 
 for t in $TABLES; do
-    echo "Processing $t"
-    $PSQL_AS < "${t}.sql"
+    if [ -f "${t}.sql" ]; then
+        echo "Processing $t"
+    else
+        echo "no such file: ${t}.sql"
+        exit 1
+    fi
+    $PSQL_AS 2>&1 < "${t}.sql" | tee tmp | grep ERROR
+    if [ "$?" -eq "0" ]; then
+        cat tmp
+        rm tmp
+        exit 1
+    fi
+    rm tmp
 done
