@@ -13,7 +13,7 @@ PSQL_AS="$PSQL $PSQL_DB"
 
 $PSQL -tc "SELECT 1 FROM pg_database WHERE datname = '${PSQL_DB}';" | grep -q 1 || $PSQL -c "CREATE DATABASE $PSQL_DB;"
 
-if [ -n "$ASDB_REINIT" ]; then
+if [ -n `echo -n $ASDB_REINIT` ]; then
     echo "Clearing out the whole schema"
     $PSQL_AS -c "DROP SCHEMA IF EXISTS ${PSQL_SCHEMA} CASCADE;"
 fi
