@@ -16,6 +16,7 @@ CREATE TABLE antismash.as_domains (
     cds_id	int4,
     module_id int4 NOT NULL REFERENCES antismash.modules ON DELETE CASCADE,
     function_id int4 NOT NULL REFERENCES antismash.module_domain_functions ON DELETE CASCADE,
+    follows int4 REFERENCES antismash.as_domains,
     CONSTRAINT as_domains_pkey PRIMARY KEY (as_domain_id),
     CONSTRAINT as_domains_as_domain_profile_id_fkey FOREIGN KEY (as_domain_profile_id) REFERENCES antismash.as_domain_profiles (as_domain_profile_id) ON DELETE CASCADE,
     CONSTRAINT as_domains_cds_id_fkey FOREIGN KEY (cds_id) REFERENCES antismash.cdss (cds_id) ON DELETE CASCADE
