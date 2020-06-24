@@ -254,10 +254,14 @@ VALUES
     ('2OG-FeII_Oxy', '2OG-Fe(II) oxygenase superfamily', 22, 'PF03171.hmm'),
     ('ATP-grasp', 'ATP-grasp domain', 21, 'PF02222.hmm'),
     ('Chor_lyase', 'Chorismate lyase', 24, 'PF04345.hmm'),
+    ('Orn_DAP_Arg_deC', 'Pyridoxal-dependent decarboxylase, C-terminal sheet domain', 21, 'PF00278.hmm'),
+    ('Orn_Arg_deC_N', 'Pyridoxal-dependent decarboxylase, pyridoxal binding domain', 24, 'PF02784.hmm'),
     ('GST_N_3', 'Glutathione S-transferase, N-terminal domain', 22, 'PF13417.hmm'),
     ('GST_C', 'Glutathione S-transferase, C-terminal domain', 21, 'PF00043.hmm'),
     ('Acyl-CoA_dh_N', 'Acyl-CoA dehydrogenase, N-terminal domain', 23, 'PF02771.hmm'),
     ('Acyl-CoA_dh_M', 'Acyl-CoA dehydrogenase, middle domain', 33, 'PF02770.hmm'),
     ('Acyl-CoA_dh_1', 'Acyl-CoA dehydrogenase, C-terminal domain', 22, 'PF00441.hmm'),
     ('TIGR02278', 'PaaN-DH: phenylacetic acid degradation protein paaN', 563, 'TIGR02278.hmm'),
-    ('TfuA', 'TfuA-like protein', 26, 'PF07812.hmm');
+    ('TfuA', 'TfuA-like protein', 26, 'PF07812.hmm'),
+    ('HopA1', 'HopA1 effector protein family', 23, 'PF17914.hmm'),
+    ('APH', 'Phosphotransferase enzyme family', 23, 'PF01636.hmm');
