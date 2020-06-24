@@ -5,6 +5,7 @@ CREATE TABLE antismash.dna_sequences (
     definition	text,
     contig_type	int4,
     chromosome_type	int4,
+    record_number	int4,
     version	int4,
     genome_id	int4,
     CONSTRAINT dna_sequences_pkey PRIMARY KEY (accession),
