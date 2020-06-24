@@ -2,12 +2,7 @@
 
 set -o nounset
 
-PSQL_HOST=localhost
-PSQL_PORT=5432
-PSQL_USER=postgres
-PSQL_DB=antismash
-PSQL_SCHEMA=antismash
-
+echo "Using ${PSQL_HOST:=localhost}:${PSQL_PORT:=5432} with db ${PSQL_DB:=antismash}, schema ${PSQL_SCHEMA:=antismash} as ${PSQL_USER:=postgres}"
 PSQL="psql -h $PSQL_HOST -p $PSQL_PORT -U $PSQL_USER"
 PSQL_AS="$PSQL $PSQL_DB"
 
