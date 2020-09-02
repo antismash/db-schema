@@ -77,6 +77,7 @@ FROM (
         ('pbde', 'Polybrominated diphenyl ether', 'other'),
         ('acyl_amino_acids', 'N-acyl amino acid cluster', 'other'),
         ('hgle-ks', 'hglE-type polyketide', 'other'),
+        ('t1nrps', 'Traditional (multi-)modular nonribosomal peptide sythases', 'nrps'),
         ('nrps-like', 'Nonribosomal peptide fragment', 'nrps'),
         ('thioamide-nrp', 'Thioamide-containing non-ribosomal peptide', 'nrps'),
         ('pks-like', 'Polyketide fragment', 'pks'),
