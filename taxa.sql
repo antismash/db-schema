@@ -1,6 +1,8 @@
 CREATE TABLE antismash.taxa (
-    tax_id	int4 NOT NULL,
+    tax_id	serial NOT NULL,
+    ncbi_taxid	int4,
     superkingdom	text,
+    kingdom	text,
     phylum	text,
     class	text,
     taxonomic_order	text,
@@ -8,5 +10,7 @@ CREATE TABLE antismash.taxa (
     genus	text,
     species	text,
     strain	text,
-    CONSTRAINT taxa_pkey PRIMARY KEY (tax_id)
+    name	text NOT NULL,
+    CONSTRAINT taxa_pkey PRIMARY KEY (tax_id),
+    CONSTRAINT taxa_name_unique UNIQUE (name)
 );
