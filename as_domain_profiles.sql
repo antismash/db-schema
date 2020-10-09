@@ -62,6 +62,7 @@ VALUES
     ('GNAT', 'GNAT domain', 'nrpspksdomains.hmm', NULL),
     ('Hal', 'Halogenase domain', 'nrpspksdomains.hmm', NULL),
     ('PS', 'Pyran synthase domain', 'nrpspksdomains.hmm', NULL),
+    ('PT', 'Fungal nonreducing product template domain', 'nrpspksdomains.hmm', NULL),
     ('TIGR01720', 'NRPS_para261: non-ribosomal peptide synthase domain', 'nrpspksdomains.hmm', NULL),
     ('ECH', 'Enoyl-CoA hydratase/isomerase', 'nrpspksdomains.hmm', NULL),
     ('TIGR02353', 'NRPS terminal domain of unknown function', 'nrpspksdomains.hmm', NULL);
