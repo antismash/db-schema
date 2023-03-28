@@ -1,24 +1,27 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+"""Generate gene_ontologies.sql"""
 
-from __future__ import print_function
-
-from collections import defaultdict
 import sys
 
-entry_table = """
+ENTRY_TABLE = """
 CREATE TABLE antismash.gene_ontologies (
     go_id serial NOT NULL PRIMARY KEY,
     identifier text NOT NULL UNIQUE,
     description text NOT NULL
 );"""
 
-insert = """
+INSERT = """
 INSERT INTO antismash.gene_ontologies (identifier, description)
 VALUES
     %s;"""
 
-results = {}
-with open(sys.argv[1]) as pfam_map:
+results: dict[str, str] = {}
+
+if len(sys.argv) < 2:
+    print(f"Usage: {sys.argv[0]} path/to/antismash/pfam2go/data/file/pfam2go.txt")
+    sys.exit(2)
+
+with open(sys.argv[1], "r", encoding="utf-8") as pfam_map:
     for line in pfam_map:
         if line.startswith("!"):
             continue
@@ -26,6 +29,6 @@ with open(sys.argv[1]) as pfam_map:
         description = description.replace("GO:", "").replace("'", "''")
         results[go_id] = description
 
-print(entry_table)
-print(insert % ",\n    ".join(sorted("('%s', '%s')" % pair for pair in results.items())))
-
+print(ENTRY_TABLE)
+print(INSERT % ",\n    ".join(
+    sorted(f"('{go_id}', '{description}')" for go_id, description in results.items())))
