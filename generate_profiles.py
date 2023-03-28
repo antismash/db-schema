@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Convert the hmmdetails.txt file into an SQL table."""
 import argparse
-import sys
 
 HEADER = """\
 CREATE TABLE antismash.profiles (
@@ -33,8 +32,7 @@ def generate_sql_values(filename):
     """Generate SQL VALUES lines to insert into the database."""
     lines = []
     for name, desc, cutoff, fname in parse_hmmdetails(filename):
-        lines.append("    ('{name}', '{desc}', {cutoff}, '{filename}'),".format(
-                     name=name, desc=desc, cutoff=cutoff, filename=fname))
+        lines.append(f"    ('{name}', '{desc}', {cutoff}, '{fname}'),")
     lines[-1] = lines[-1][:-1] + ';'
 
     return '\n'.join(lines)
@@ -42,7 +40,7 @@ def generate_sql_values(filename):
 
 def parse_hmmdetails(filename):
     """Parse the hmmdetails.txt file."""
-    with open(filename, 'rt') as handle:
+    with open(filename, 'r', encoding="utf-8") as handle:
         line = handle.readline().strip()
         while line:
             yield line.split('\t')
@@ -51,4 +49,3 @@ def parse_hmmdetails(filename):
 
 if __name__ == "__main__":
     main()
-
