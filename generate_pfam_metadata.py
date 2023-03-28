@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Create an SQL table from the PFAM database metadata."""
 import argparse
-import sys
 
 HEADER = """\
 CREATE TABLE antismash.pfams (
@@ -21,6 +20,7 @@ VALUES"""
 
 
 class PfamEntry:
+    """Representation of a Pfam DB entry"""
     def __init__(self, pfam_id=None, name=None, description=None, cutoff=None, version=None):
         self.pfam_id = pfam_id
         self.name = name
@@ -31,12 +31,11 @@ class PfamEntry:
     def sql(self):
         """Get the SQL values line corresponding to this PfamEntry."""
         assert self.pfam_id is not None
-        return "({pfam_id}, {name}, {description}, {cutoff}, {version})".format(
-            pfam_id=PfamEntry.str_or_null(self.pfam_id),
-            name=PfamEntry.str_or_null(self.name),
-            description=PfamEntry.str_or_null(self.description),
-            cutoff=PfamEntry.num_or_null(self.cutoff),
-            version=PfamEntry.num_or_null(self.version))
+        return (f"({PfamEntry.str_or_null(self.pfam_id)}, "
+                f"{PfamEntry.str_or_null(self.name)}, "
+                f"{PfamEntry.str_or_null(self.description)}, "
+                f"{PfamEntry.num_or_null(self.cutoff)}, "
+                f"{PfamEntry.num_or_null(self.version)})")
 
     @staticmethod
     def str_or_null(value):
@@ -44,7 +43,8 @@ class PfamEntry:
         if value is None:
             return "NULL"
 
-        return "'{}'".format(value.replace("'", "''"))
+        ret = value.replace("'", "''")
+        return f"'{ret}'"
 
     @staticmethod
     def num_or_null(value):
@@ -68,7 +68,7 @@ def generate_sql_values(filename):
     """Generate SQL VALUES lines to insert into the database."""
     lines = []
     for entry in parse_pfam_entries(filename):
-        lines.append("    {},".format(entry.sql()))
+        lines.append(f"    {entry.sql()},")
     lines[-1] = lines[-1][:-1] + ';'
 
     return '\n'.join(lines)
@@ -76,7 +76,7 @@ def generate_sql_values(filename):
 
 def parse_pfam_entries(filename):
     """Parse the Pfam-A.hmm file."""
-    with open(filename, 'rt') as handle:
+    with open(filename, 'r', encoding="utf-8") as handle:
         line = handle.readline().strip()
         pfam_id = None
         name = None
@@ -107,4 +107,3 @@ def parse_pfam_entries(filename):
 
 if __name__ == "__main__":
     main()
-
