@@ -18,11 +18,11 @@ VALUES"""
 def main() -> None:
     """Generate substrates table"""
     print(HEADER)
-    for substrate in KNOWN_SUBSTRATES[:-1]:  # all but last one
+    for substrate in KNOWN_SUBSTRATES:
         print(f"    ('{substrate.short}', '{substrate.long}'),")
 
-    # last one gets a semicolon
-    print(f"    ('{KNOWN_SUBSTRATES[-1].short}', '{KNOWN_SUBSTRATES[-1].long}');")
+    # and explicitly add X
+    print(f"    ('X', 'unknown amino acid');")
 
 
 if __name__ == "__main__":
