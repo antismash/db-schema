@@ -285,4 +285,5 @@ VALUES
     ('Nrp', 'unknown amino acid'),
     ('Pk', 'unknown ketide'),
     ('Val', 'valine'),
-    ('Valol', 'valinol');
+    ('Valol', 'valinol'),
+    ('X', 'unknown');
