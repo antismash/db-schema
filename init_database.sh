@@ -2,6 +2,10 @@
 
 set -o nounset
 
+# since all filenames are assuming they're in the same dir as this script is
+# called handle cases where the working directory *isn't* the same directory
+cd `dirname "$0"`
+
 echo "Using ${PSQL_HOST:=localhost}:${PSQL_PORT:=5432} with db ${PSQL_DB:=antismash}, schema ${PSQL_SCHEMA:=antismash} as ${PSQL_USER:=postgres}"
 PSQL="psql -h $PSQL_HOST -p $PSQL_PORT -U $PSQL_USER"
 PSQL_AS="$PSQL $PSQL_DB"
