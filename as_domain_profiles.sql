@@ -12,6 +12,7 @@ COMMENT ON TABLE antismash.as_domain_profiles IS
 
 INSERT INTO antismash.as_domain_profiles (name, description, database, type)
 VALUES
+    ('Beta_elim_lyase', 'Beta-eliminating lyase', 'nrpspksdomains.hmm', NULL),
     ('Condensation', 'Condensation domain', 'nrpspksdomains.hmm', 'condensation'),
     ('Condensation_DCL', 'Condensation domain that links L-amino acid to peptide ending with D-amino acid', 'nrpspksdomains.hmm', 'condensation'),
     ('Condensation_LCL', 'Condensation domain that links L-amino acid to peptide ending with L-amino acid', 'nrpspksdomains.hmm', 'condensation'),
@@ -28,6 +29,7 @@ VALUES
     ('nMT', 'N-methyl transferase', 'nrpspksdomains.hmm', 'methyl transferase'),
     ('AMP-binding', 'Adenylation domain', 'nrpspksdomains.hmm', 'adenylation'),
     ('A-OX', 'Adenylation domain with integrated oxidase', 'nrpspksdomains.hmm', 'adenylation'),
+    ('TauD', 'Taurine catabolism dioxygenase TauD, TfdA family', 'nrpspksdomains.hmm', NULL),
     ('Thioesterase', 'Thioesterase domain', 'nrpspksdomains.hmm', NULL),
     ('TD', 'Terminal reductase domain', 'nrpspksdomains.hmm', NULL),
     ('Aminotran_1_2', 'Aminotransferase class I + II', 'nrpspksdomains.hmm', 'aminotransferase'),
