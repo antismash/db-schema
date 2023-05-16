@@ -5,6 +5,7 @@ CREATE TABLE antismash.modules (
     trans_at     bool NOT NULL,
     complete    bool NOT NULL,
     iterative   bool NOT NULL,
+    multi_gene	bool NOT NULL,
     region_id int4 REFERENCES antismash.regions ON DELETE CASCADE,
     CONSTRAINT modules_pkey PRIMARY KEY (module_id)
 );
