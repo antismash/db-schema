@@ -18,7 +18,7 @@ $PSQL_AS -c "DROP SCHEMA IF EXISTS ${PSQL_SCHEMA} CASCADE;" > /dev/null 2>&1
 $PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};" > /dev/null 2>&1
 # tables not depending on other tables
 TABLES="sampling_sites bgc_types substrates taxa profiles "
-TABLES="$TABLES as_domain_profiles pfams gene_ontologies resfams"
+TABLES="$TABLES as_domain_profiles pfams gene_ontologies resfams tigrfams"
 # tables depending on other tables. Please keep the order intact
 TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences"
 TABLES="$TABLES regions candidates protoclusters"
@@ -26,6 +26,7 @@ TABLES="$TABLES functional_classes smcogs cdss genes"
 TABLES="$TABLES ripps t2pks monomers modules"
 TABLES="$TABLES as_domains clusterblast_algorithms clusterblast_hits tta_codons"
 TABLES="$TABLES pfam_domains pfam_go_entries filenames resfam_domains tfbs comparippson"
+TABLES="$TABLES tigrfam_domains"
 # tables that create many-to-many relations
 TABLES="$TABLES rel_candidates_protoclusters rel_candidates_types rel_candidates_modules"
 TABLES="$TABLES rel_cds_candidates rel_cds_protoclusters"
