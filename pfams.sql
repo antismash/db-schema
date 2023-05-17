@@ -1,14 +1,13 @@
 CREATE TABLE antismash.pfams (
-    pfam_id	text NOT NULL,
+    pfam_id	text PRIMARY KEY,
     name	text,
     description	text,
     trusted_cutoff	float8,
-    version	int4,
-    CONSTRAINT pfams_pkey PRIMARY KEY (pfam_id)
+    version	int4
 );
 
 COMMENT ON TABLE antismash.pfams IS
-  'PFAM domain metadata.';
+  'pfam domain metadata.';
 
 INSERT INTO antismash.pfams (pfam_id, name, description, trusted_cutoff, version)
 VALUES
