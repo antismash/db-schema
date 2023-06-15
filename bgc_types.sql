@@ -1,35 +1,40 @@
 
+CREATE TABLE antismash.bgc_categories (
+    category	text	PRIMARY KEY,
+    description	text	UNIQUE NOT NULL
+);
+
+COMMENT ON TABLE antismash.bgc_categories IS
+  'Biosynthetic gene cluster categories according to MIBiG spec.';
+
+--- basic MIBiG types
+INSERT INTO antismash.bgc_categories (category, description)
+VALUES
+    ('pks', 'Polyketide'),
+    ('nrps', 'Nonribosomal peptide'),
+    ('ripp', 'Ribosomally synthesized and post-translationally modified peptide'),
+    ('terpene', 'Terpene'),
+    ('saccharide', 'Saccharide'),
+    ('alkaloid', 'Alkaloid'),
+    ('other', 'Other');
+
+
 CREATE TABLE antismash.bgc_types (
     bgc_type_id	serial NOT NULL,
-    term	text,
-    description	text,
-    parent_id	int4,
+    term	text	NOT NULL,
+    description	text	NOT NULL,
+    category	text	NOT NULL,
     CONSTRAINT bgc_types_pkey PRIMARY KEY (bgc_type_id),
     CONSTRAINT bgc_types_term_unique UNIQUE (term),
-    CONSTRAINT bgc_types_parent_id_fkey FOREIGN KEY (parent_id) REFERENCES antismash.bgc_types (bgc_type_id)
+    CONSTRAINT bgc_types_category_fkey FOREIGN KEY (category) REFERENCES antismash.bgc_categories (category)
 );
 
 COMMENT ON TABLE antismash.bgc_types IS
-  'Biosynthetic gene cluster types. Basic types according to MIBiG spec.';
-
---- basic MIBiG types
-INSERT INTO antismash.bgc_types (term, description, parent_id)
-SELECT val.term, val.description, val.parent_id::int4
-FROM (
-    VALUES
-        ('pks', 'Polyketide', NULL),
-        ('nrps', 'Nonribosomal peptide', NULL),
-        ('ripp', 'Ribosomally synthesized and post-translationally modified peptide', NULL),
-        ('terpene', 'Terpene', NULL),
-        ('saccharide', 'Saccharide', NULL),
-        ('alkaloid', 'Alkaloid', NULL),
-        ('other', 'Other', NULL)
-    ) val ( term, description, parent_id );
-
+  'Biosynthetic gene cluster types.';
 
 --- More detailed antiSMASH types
-INSERT INTO antismash.bgc_types (term, description, parent_id)
-SELECT val.term, val.description, f.bgc_type_id
+INSERT INTO antismash.bgc_types (term, description, category)
+SELECT val.term, val.description, val.parent_term
 FROM (
     VALUES
         ('t1pks', 'Type I polyketide', 'pks'),
@@ -43,12 +48,13 @@ FROM (
         ('resorcinol', 'Resorcinol', 'other'),
         ('ladderane', 'Ladderane', 'other'),
         ('pufa', 'PolyUnsaturated Fatty Acid', 'other'),
-        ('t1nrps', 'non-ribosomal peptide synthase', 'nrps'),
+        ('nrps', 'non-ribosomal peptide synthase', 'nrps'),
         ('cdps', 'tRNA-dependent cyclodipeptide synthases', 'nrps'),
         ('rcdps', 'fungal tRNA-dependent arginine-containing cyclodipeptide synthases', 'nrps'),
         ('thioamide-nrp', 'thioamide-containing non-ribosomal peptides', 'nrps'),
         ('napaa', 'non-alpha poly-amino acids', 'nrps'),
         ('mycosporine-like', 'mycosporine-like amino acid containing molecules', 'nrps'),
+        ('terpene', 'Terpene', 'terpene'),
         ('lanthipeptide-class-i', 'Class I Lanthipeptide', 'ripp'),
         ('lanthipeptide-class-ii', 'Class II Lanthipeptide', 'ripp'),
         ('lanthipeptide-class-iii', 'Class III Lanthipeptide', 'ripp'),
@@ -91,6 +97,7 @@ FROM (
         ('phenazine', 'Phenazine', 'other'),
         ('phosphonate', 'Phosphonate', 'other'),
         ('guanidinotides', 'RiPP fused with a non-ribosomal peptide', 'ripp'),
+        ('other', 'Other, non-categorised secondary metabolites', 'other'),
         ('acyl_amino_acids', 'N-acyl amino acids', 'other'),
         ('pbde', 'polybrominated diphenyl ethers ( PBDEs )', 'other'),
         ('betalactone', 'beta-lactone containing protease inhibitor', 'other'),
@@ -108,5 +115,4 @@ FROM (
         ('rre-containing', 'RRE-element containing cluster', 'ripp'),
         ('fungal-ripp-like', 'fungal RiPP-like clusters', 'ripp'),
         ('phosphonate-like', 'Phosphonate-like', 'other')
-    ) val ( term, description, parent_term )
-LEFT JOIN antismash.bgc_types f ON val.parent_term = f.term;
+    ) val ( term, description, parent_term );
