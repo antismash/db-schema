@@ -26,7 +26,7 @@ TABLES="$TABLES functional_classes smcogs cdss genes"
 TABLES="$TABLES ripps t2pks monomers modules"
 TABLES="$TABLES as_domains clusterblast_algorithms clusterblast_hits tta_codons"
 TABLES="$TABLES pfam_domains pfam_go_entries filenames resfam_domains tfbs comparippson"
-TABLES="$TABLES tigrfam_domains"
+TABLES="$TABLES tigrfam_domains cluster_compare_hits"
 # tables that create many-to-many relations
 TABLES="$TABLES rel_candidates_protoclusters rel_candidates_types rel_candidates_modules"
 TABLES="$TABLES rel_cds_candidates rel_cds_protoclusters"
