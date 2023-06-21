@@ -48,7 +48,7 @@ FROM (
         ('resorcinol', 'Resorcinol', 'other'),
         ('ladderane', 'Ladderane', 'other'),
         ('pufa', 'PolyUnsaturated Fatty Acid', 'other'),
-        ('nrps', 'non-ribosomal peptide synthase', 'nrps'),
+        ('nrps', 'Non-ribosomal peptide synthase', 'nrps'),
         ('cdps', 'tRNA-dependent cyclodipeptide synthases', 'nrps'),
         ('rcdps', 'fungal tRNA-dependent arginine-containing cyclodipeptide synthases', 'nrps'),
         ('thioamide-nrp', 'thioamide-containing non-ribosomal peptides', 'nrps'),
