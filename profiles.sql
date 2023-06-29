@@ -364,4 +364,5 @@ VALUES
     ('CntM', 'Staphylopine dehydrogenase found in opine-like zincophore clusters', 100, 'CntM.hmm'),
     ('AesA', 'N-((2S)-2-amino-2-carboxyethyl)-L-glutamate dehydrogenase involved in APCA biosynthesis', 300, 'AesA.hmm'),
     ('AesB', 'Pyridoxal-dependent decarboxylase involved in APCA biosynthesis', 400, 'AesB.hmm'),
-    ('AesC', 'N-(2-amino-2-carboxyethyl)-L-glutamate synthase involved in APCA biosynthesis', 420, 'AesC.hmm');
+    ('AesC', 'N-(2-amino-2-carboxyethyl)-L-glutamate synthase involved in APCA biosynthesis', 420, 'AesC.hmm'),
+    ('cyanobactin_precursor', 'Pattern-based detection of cyanobactin precursor peptides', NULL, 'cyanobactin_precursor.py');
