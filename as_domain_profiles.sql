@@ -30,6 +30,7 @@ VALUES
     ('AMP-binding', 'Adenylation domain', 'nrpspksdomains.hmm', 'adenylation'),
     ('A-OX', 'Adenylation domain with integrated oxidase', 'nrpspksdomains.hmm', 'adenylation'),
     ('TauD', 'Taurine catabolism dioxygenase TauD, TfdA family', 'nrpspksdomains.hmm', NULL),
+    ('cAT', 'Cyclising acyltransferase, similar function to a thioesterase', 'nrpspksdomains.hmm', NULL),
     ('Thioesterase', 'Thioesterase domain', 'nrpspksdomains.hmm', NULL),
     ('TD', 'Terminal reductase domain', 'nrpspksdomains.hmm', NULL),
     ('Aminotran_1_2', 'Aminotransferase class I + II', 'nrpspksdomains.hmm', 'aminotransferase'),
@@ -67,4 +68,5 @@ VALUES
     ('PT', 'Fungal nonreducing product template domain', 'nrpspksdomains.hmm', NULL),
     ('TIGR01720', 'NRPS_para261: non-ribosomal peptide synthase domain', 'nrpspksdomains.hmm', NULL),
     ('ECH', 'Enoyl-CoA hydratase/isomerase', 'nrpspksdomains.hmm', NULL),
+    ('LPG_synthase_C', 'Phosphatidylglycerol lysyltransferase, C-terminal', 'nrpspksdomains.hmm', NULL),
     ('TIGR02353', 'NRPS terminal domain of unknown function', 'nrpspksdomains.hmm', NULL);
