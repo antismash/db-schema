@@ -35,7 +35,7 @@ TABLES="$TABLES rel_as_domains_substrates smcog_hits profile_hits rel_modules_mo
 # views that depend on all this stuff
 TABLES="$TABLES view_sequence_gc_content view_sequence_lengths"
 # precalculated data, load this last
-TABLES="$TABLES preload_taxa"
+TABLES="$TABLES preload_taxa preload_monomers"
 
 for t in $TABLES; do
     if [ -f "${t}.sql" ]; then
