@@ -10,7 +10,7 @@ echo "Using ${PSQL_HOST:=localhost}:${PSQL_PORT:=5432} with db ${PSQL_DB:=antism
 PSQL="psql -h $PSQL_HOST -p $PSQL_PORT -U $PSQL_USER"
 PSQL_AS="$PSQL $PSQL_DB"
 
-$PSQL -tc "SELECT 1 FROM pg_database WHERE datname = '${PSQL_DB}';" | grep -q 1 || $PSQL -c "CREATE DATABASE $PSQL_DB;"
+$PSQL -tc "SELECT 1 FROM pg_database WHERE datname = '${PSQL_DB}';" postgres | grep -q 1 || $PSQL -c "CREATE DATABASE $PSQL_DB;" postgres
 
 echo "Clearing out the whole schema"
 $PSQL_AS -c "DROP SCHEMA IF EXISTS ${PSQL_SCHEMA} CASCADE;" > /dev/null 2>&1
