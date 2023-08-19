@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS asdb_jobs.jobs (
   jobtype TEXT NOT NULL,
   status TEXT NOT NULL,
   runner TEXT,
+  submitted_date TIMESTAMP NOT NULL DEFAULT CURRENT_DATE,
   data JSONB NOT NULL,
   results JSONB NOT NULL,
   version INT NOT NULL
