@@ -6,8 +6,8 @@ from antismash.modules.tfbs_finder.tfbs_finder import PWM_PATH, load_matrices
 
 HEADER = """CREATE TABLE antismash.regulators (
     regulator_id	serial NOT NULL,
-    name	text,
-    description	text,
+    name	text NOT NULL,
+    description	text NOT NULL,
     CONSTRAINT regulators_pkey PRIMARY KEY (regulator_id),
     CONSTRAINT regulators_name_unique UNIQUE (name)
 );
