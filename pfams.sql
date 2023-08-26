@@ -1,9 +1,10 @@
 CREATE TABLE antismash.pfams (
     pfam_id	text PRIMARY KEY,
-    name	text,
-    description	text,
+    name	text NOT NULL,
+    description	text NOT NULL,
     trusted_cutoff	float8,
     version	int4
+
 );
 
 COMMENT ON TABLE antismash.pfams IS

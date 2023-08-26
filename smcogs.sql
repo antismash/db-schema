@@ -1,7 +1,7 @@
 CREATE TABLE antismash.smcogs (
     smcog_id	serial NOT NULL,
-    name	text,
-    description	text,
+    name	text NOT NULL,
+    description	text NOT NULL,
     functional_class_id	int4,
     CONSTRAINT smcogs_pkey PRIMARY KEY (smcog_id),
     CONSTRAINT smcogs_functional_class_id_fkey FOREIGN KEY (functional_class_id) REFERENCES antismash.functional_classes (functional_class_id)

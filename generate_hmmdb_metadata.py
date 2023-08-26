@@ -13,8 +13,8 @@ VERSION = """,
 HEADER = """\
 CREATE TABLE antismash.{family}s (
     {family}_id	text PRIMARY KEY,
-    name	text,
-    description	text,
+    name	text NOT NULL,
+    description	text NOT NULL,
     trusted_cutoff	float8{version}
 );
 
