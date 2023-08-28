@@ -6,8 +6,8 @@ CREATE TABLE antismash.genomes (
     isolate_id	int4,
     assembly_id	text NOT NULL,
     CONSTRAINT genomes_pkey PRIMARY KEY (genome_id),
-    CONSTRAINT genomes_tax_id_fkey FOREIGN KEY (tax_id) REFERENCES antismash.taxa (tax_id) ON DELETE CASCADE,
-    CONSTRAINT genomes_isolate_id_fkey FOREIGN KEY (isolate_id) REFERENCES antismash.isolates (isolate_id) ON DELETE CASCADE
+    CONSTRAINT genomes_tax_id_fkey FOREIGN KEY (tax_id) REFERENCES antismash.taxa (tax_id) ON DELETE SET NULL,
+    CONSTRAINT genomes_isolate_id_fkey FOREIGN KEY (isolate_id) REFERENCES antismash.isolates (isolate_id) ON DELETE SET NULL
 );
 COMMENT ON TABLE antismash.genomes IS
     'Information on a genome';
