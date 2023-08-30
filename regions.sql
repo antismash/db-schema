@@ -6,6 +6,9 @@ CREATE TABLE antismash.regions (
     start_pos	int4 NOT NULL,
     end_pos	int4 NOT NULL,
     contig_edge	bool NOT NULL,
+    best_mibig_hit_acc	text,
+    best_mibig_hit_description	text,
+    best_mibig_hit_similarity	int4,
     CONSTRAINT regions_pkey PRIMARY KEY (region_id)
 );
 
