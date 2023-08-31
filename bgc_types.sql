@@ -114,7 +114,7 @@ FROM (
         ('aminopolycarboxylic-acid', 'Aminopolycarboxylic acid metallophores', 'other'),
         ('isocyanide', 'Isocyanides', 'other'),
         ('isocyanide-nrp', 'NRP with isocyanide', 'nrps'),
-        ('hydroxycyanide', 'hydroxycyanide', 'other'),
+        ('hydrogen-cyanide', 'hydrogen cyanide', 'other'),
         ('nrps-like', 'Catches NRPS-like fragments that are not detected by the NRPS rule', 'nrps'),
         ('pks-like', 'Catches PKS-like fragments that are not detected by another PKS rule', 'pks'),
         ('transat-pks-like', 'Marks partial transAT-PKS clusters , specifically those with an AT-docking domain , but no AT domain .', 'pks'),
