@@ -26,6 +26,7 @@ COMMENT ON TABLE antismash.as_domains IS
   'A functional domain on a gene as predicted by antiSMASH';
 
 CREATE INDEX as_domains_cds_id_idx ON antismash.as_domains (cds_id);
+CREATE INDEX as_domains_follows_idx ON antismash.as_domains (follows);
 
 
 CREATE TABLE antismash.as_domain_subtypes (
