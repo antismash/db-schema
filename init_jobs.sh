@@ -17,7 +17,7 @@ $PSQL_AS -c "DROP SCHEMA IF EXISTS ${PSQL_SCHEMA} CASCADE;" >/dev/null 2>&1
 
 $PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};" >/dev/null 2>&1
 # tables not depending on other tables
-TABLES="controls jobs "
+TABLES="controls jobs counters"
 
 for t in $TABLES; do
 	if [ -f "${t}.sql" ]; then
