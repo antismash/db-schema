@@ -77,7 +77,7 @@ FROM (
         ('redox-cofactor', 'Redox-cofactors', 'ripp'),
         ('darobactin', 'darobactin-like compounds', 'ripp'),
         ('triceptide', 'triceptides', 'ripp'),
-        ('achaeal-ripp', 'archaeal-RiPP', 'ripp'),
+        ('archaeal-ripp', 'archaeal-RiPP', 'ripp'),
         ('epipeptide', 'D-amino-acid containing RiPPs', 'ripp'),
         ('cyclic-lactone-autoinducer', 'agrD-like cyclic lactone autoinducer peptides', 'ripp'),
         ('spliceotide', 'RiPPs containing plpX type spliceases', 'ripp'),
