@@ -17,10 +17,10 @@ $PSQL_AS -c "DROP SCHEMA IF EXISTS ${PSQL_SCHEMA} CASCADE;" > /dev/null 2>&1
 
 $PSQL_AS -c "CREATE SCHEMA IF NOT EXISTS ${PSQL_SCHEMA};" > /dev/null 2>&1
 # tables not depending on other tables
-TABLES="sampling_sites bgc_types substrates taxa profiles "
+TABLES="bgc_types substrates taxa profiles "
 TABLES="$TABLES as_domain_profiles pfams gene_ontologies resfams tigrfams"
 # tables depending on other tables. Please keep the order intact
-TABLES="$TABLES bgc_rules samples isolates genomes dna_sequences"
+TABLES="$TABLES bgc_rules genomes dna_sequences"
 TABLES="$TABLES regions candidates protoclusters"
 TABLES="$TABLES functional_classes smcogs cdss genes"
 TABLES="$TABLES ripps t2pks monomers modules"
