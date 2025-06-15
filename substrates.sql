@@ -166,6 +166,7 @@ VALUES
     ('ohOrn', 'N5-hydroxyornithine'),
     ('E-ahmohOrn', 'N5-trans-anhydromevalonyl-N5-hydroxyornithine'),
     ('N6-ohLys', 'N6-hydroxylysine'),
+    ('NH2', 'NH2'),
     ('omeThr', 'O-methylthreonine'),
     ('omeTyr', 'O-methyltyrosine'),
     ('3R-oh-3-mePro', 'R-3-hydroxy-3-methylproline'),
@@ -286,4 +287,4 @@ VALUES
     ('Pk', 'unknown ketide'),
     ('Val', 'valine'),
     ('Valol', 'valinol'),
-    ('X', 'unknown');
+    ('X', 'unknown amino acid');
