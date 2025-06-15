@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Convert the hmmdetails.txt file into an SQL table."""
 import argparse
-import glob
 import os
+from pathlib import Path
 
 HEADER = """\
 CREATE TABLE antismash.profiles (
@@ -57,8 +57,9 @@ def parse_hmmdetails(filename):
 
 
 def convert_dynamic_profiles(directory):
-    for filename in glob.glob(os.path.join(directory, "*.py")):
-        if filename.endswith("__init__.py"):
+    dir = Path(directory)
+    for filename in dir.glob("*.py"):
+        if filename.name.startswith("_"):
             continue
         name = None
         description = None
