@@ -32,8 +32,6 @@ TABLES="$TABLES rel_candidates_protoclusters rel_candidates_types rel_candidates
 TABLES="$TABLES rel_cds_candidates rel_cds_protoclusters"
 TABLES="$TABLES rel_regions_types"
 TABLES="$TABLES rel_as_domains_substrates smcog_hits profile_hits rel_modules_monomers"
-# views that depend on all this stuff
-TABLES="$TABLES view_sequence_gc_content view_sequence_lengths"
 # precalculated data, load this last
 TABLES="$TABLES preload_taxa preload_monomers"
 
