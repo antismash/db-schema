@@ -34,7 +34,7 @@ TABLES="$TABLES rel_cds_candidates rel_cds_protoclusters"
 TABLES="$TABLES rel_regions_types"
 TABLES="$TABLES rel_as_domains_substrates smcog_hits profile_hits rel_modules_monomers"
 # precalculated data, load this last
-TABLES="$TABLES preload_taxa preload_monomers"
+#TABLES="$TABLES preload_taxa preload_monomers"
 
 for t in $TABLES; do
     if [ -f "${t}.sql" ]; then
