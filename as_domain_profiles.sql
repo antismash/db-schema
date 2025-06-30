@@ -69,4 +69,7 @@ VALUES
     ('TIGR01720', 'NRPS_para261: non-ribosomal peptide synthase domain', 'nrpspksdomains.hmm', NULL),
     ('ECH', 'Enoyl-CoA hydratase/isomerase', 'nrpspksdomains.hmm', NULL),
     ('LPG_synthase_C', 'Phosphatidylglycerol lysyltransferase, C-terminal', 'nrpspksdomains.hmm', NULL),
-    ('TIGR02353', 'NRPS terminal domain of unknown function', 'nrpspksdomains.hmm', NULL);
+    ('TIGR02353', 'NRPS terminal domain of unknown function', 'nrpspksdomains.hmm', NULL),
+    ('IBH_Asp', 'Aspartate beta-hydroxylase, IBH domain', 'nrpspksdomains.hmm', NULL),
+    ('Interface', 'Interface domain', 'nrpspksdomains.hmm', NULL),
+    ('Abhydrolase_1', 'Abhydrolase', 'nrpspksdomains.hmm', NULL);
