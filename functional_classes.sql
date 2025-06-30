@@ -1,4 +1,4 @@
-CREATE TABLE antismash.functional_classes (
+CREATE TABLE IF NOT EXISTS antismash.functional_classes (
     functional_class_id	serial NOT NULL,
     name	text,
     parent_id	int4,
@@ -17,7 +17,8 @@ FROM (
         ('regulator', NULL),
         ('transporter', NULL),
         ('other', NULL)
-    ) val ( name, parent_id );
+    ) val ( name, parent_id )
+    ON CONFLICT DO NOTHING;
 
 
 --- Advanced classes
@@ -28,4 +29,83 @@ FROM (
         ('bgc_seed', 'biosynthetic'),
         ('biosynthetic_smcog', 'biosynthetic')
     ) val ( name, parent_name )
-LEFT JOIN antismash.functional_classes f ON val.parent_name = f.name;
+LEFT JOIN antismash.functional_classes f ON val.parent_name = f.name
+ON CONFLICT DO NOTHING;
+
+
+--- Advanced classes based on EC groups
+INSERT INTO antismash.functional_classes (name, parent_id)
+SELECT val.name, f.functional_class_id
+FROM (
+    VALUES
+        ('oxidoreductases', 'biosynthetic'),
+        ('transferases', 'biosynthetic'),
+        ('hydrolases', 'biosynthetic'),
+        ('lyases', 'biosynthetic'),
+        ('isomerases', 'biosynthetic'),
+        ('ligases', 'biosynthetic'),
+        ('translocases', 'biosynthetic')
+    ) val ( name, parent_name )
+LEFT JOIN antismash.functional_classes f ON val.parent_name = f.name
+ON CONFLICT DO NOTHING;
+
+
+--- Subfunctions based on EC groups
+INSERT INTO antismash.functional_classes (name, parent_id)
+SELECT val.name, f.functional_class_id
+FROM (
+    VALUES
+        ('PPTase', 'transferases'),
+        ('acetyltransferase', 'transferases'),
+        ('acylase', 'transferases'),
+        ('acyltransferase', 'transferases'),
+        ('aminotransferase', 'transferases'),
+        ('carbamoyltransferase', 'transferases'),
+        ('carboxylase', 'transferases'),
+        ('formyltransferase', 'transferases'),
+        ('glycosyltransferase', 'transferases'),
+        ('halogenase', 'transferases'),
+        ('kinase', 'transferases'),
+        ('methyltransferase', 'transferases'),
+        ('phosphorylase', 'transferases'),
+        ('phosphotransferase', 'transferases'),
+        ('sulfhydrylase', 'transferases'),
+        ('sulfotransferase', 'transferases'),
+        ('transferase', 'transferases'),
+        ('transketolase', 'transferases'),
+        ('cyclase', 'lyases'),
+        ('decarboxylase', 'lyases'),
+        ('dehydratase', 'lyases'),
+        ('hydratase', 'lyases'),
+        ('lyase', 'lyases'),
+        ('dehydrogenase', 'oxidoreductases'),
+        ('electron transfer', 'oxidoreductases'),
+        ('oxidase', 'oxidoreductases'),
+        ('oxidoreductase', 'oxidoreductases'),
+        ('oxygenase', 'oxidoreductases'),
+        ('phosphate reductase', 'oxidoreductases'),
+        ('reductase', 'oxidoreductases'),
+        ('ligase', 'ligases'),
+        ('synthase', 'ligases'),
+        ('synthetase', 'ligases'),
+        ('amidase', 'hydrolases'),
+        ('back_translocase', 'hydrolases'),
+        ('deacetylase', 'hydrolases'),
+        ('deaminase', 'hydrolases'),
+        ('deformylase', 'hydrolases'),
+        ('dehalogenase', 'hydrolases'),
+        ('esterase', 'hydrolases'),
+        ('glucanase', 'hydrolases'),
+        ('glucosidase', 'hydrolases'),
+        ('hydrolase', 'hydrolases'),
+        ('peptidase', 'hydrolases'),
+        ('phosphatase', 'hydrolases'),
+        ('protease', 'hydrolases'),
+        ('isomerase', 'isomerases'),
+        ('mutase', 'isomerases'),
+        ('racemase', 'isomerases'),
+        ('permease', 'translocases'),
+        ('transporter', 'translocases')
+    ) val ( name, parent_name )
+LEFT JOIN antismash.functional_classes f ON val.parent_name = f.name
+ON CONFLICT DO NOTHING;
