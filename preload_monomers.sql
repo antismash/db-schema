@@ -94,6 +94,77 @@ COPY antismash.monomers (monomer_id, substrate_id, name, description) FROM stdin
 151	278	valol	valinol
 152	114	bmt	4R-E-butenyl-4R-methylthreonine
 153	276	d-pk	modified unknown ketide
+154	160	nh2	NH2
+155	278	nme-tyr	modified tyrosine
+156	205	me-cys	modified cysteine
+157	36	ahba	2S-4-amino-2-hydroxybutyrate
+158	275	nme-thr	modified threonine
+159	280	me-pk	modified unknown ketide
+160	281	nme-val	modified valine
+161	180	nme-ala	modified alanine
+162	246	me-me-ccmal	modified methylmalonyl-CoA
+163	279	nme-x	modified unknown amino acid
+164	246	me-me-redmal	modified methylmalonyl-CoA
+165	238	nme-leu	modified leucine
+166	254	nme-phe	modified phenylalanine
+167	205	nme-cys	modified cysteine
+168	279	d-nme-x	modified unknown amino acid
+169	179	acetyl-coa	acetyl-CoA
+170	272	shikimic_acid	shikimic acid
+171	271	nme-ser	modified serine
+172	156	nme-fo-oh-orn	modified N5-formyl-N5-hydroxyornithine
+173	157	nme-oh-orn	modified N5-hydroxyornithine
+174	187	nme-asp	modified aspartic acid
+175	242	ome-mal	modified malonyl-CoA
+176	221	nme-gly	modified glycine
+177	281	d-nme-val	modified valine
+178	186	nme-asn	modified asparagine
+179	254	d-nme-phe	modified phenylalanine
+180	278	d-nme-tyr	modified tyrosine
+181	271	d-nme-ser	modified serine
+182	218	fatty_acid	fatty acid
+183	278	nme-nme-tyr	modified tyrosine
+184	262	nme-pro	modified proline
+185	277	d-nme-trp	modified tryptophan
+186	234	nme-ile	modified isoleucine
+187	160	d-nh2	modified NH2
+188	249	nme-orn	modified ornithine
+189	246	ome-me-ohmal	modified methylmalonyl-CoA
+190	218	d-fatty_acid	modified fatty acid
+191	110	nme-hpg	modified 4-hydroxyphenylglycine
+192	242	ome-ohmal	modified malonyl-CoA
+193	257	nme-hpr	modified pipecolic acid
+194	242	me-me-ohmal	modified malonyl-CoA
+195	196	nme-boh-tyr	modified beta-hydroxytyrosine
+196	245	me-redmxmal	modified methoxymalonyl-CoA
+197	246	me-me-mal	modified methylmalonyl-CoA
+198	180	d-nme-ala	modified alanine
+199	185	nme-arg	modified arginine
+200	221	d-nme-gly	modified glycine
+201	205	d-nme-cys	modified cysteine
+203	238	d-nme-leu	modified leucine
+204	192	nme-bala	modified beta-alanine
+205	225	nme-his	modified histidine
+206	220	nme-gln	modified glutamine
+207	183	nme-athr	modified allo-threonine
+208	277	nme-trp	modified tryptophan
+209	221	me-gly	modified glycine
+210	186	d-nme-asn	modified asparagine
+211	240	nme-lys	modified lysine
+212	219	nme-glu	modified glutamic acid
+214	279	me-x	modified unknown amino acid
+215	185	d-nme-arg	modified arginine
+216	157	d-nme-oh-orn	modified N5-hydroxyornithine
+217	220	d-nme-gln	modified glutamine
+218	179	d-acetyl-coa	modified acetyl-CoA
+219	275	d-nme-thr	modified threonine
+220	154	nme-ac-oh-orn	modified N5-acetyl-N5-hydroxyornithine
+221	245	me-mxmal	modified methoxymalonyl-CoA
+222	84	3me-glu	3R-methylglutamic acid
+223	110	d-nme-hpg	modified 4-hydroxyphenylglycine
+224	115	nme-bmt	modified 4R-E-butenyl-4R-methylthreonine
+225	141	nme-d-ala	modified D-alanine
+226	218	nme-fatty_acid	modified fatty acid
 \.
 
-SELECT pg_catalog.setval('antismash.monomers_monomer_id_seq', 153, true);
+SELECT pg_catalog.setval('antismash.monomers_monomer_id_seq', 226, true);
