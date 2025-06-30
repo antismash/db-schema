@@ -5,6 +5,7 @@ CREATE TABLE antismash.genomes (
     bio_sample	text,
     assembly_id	text NOT NULL,
     CONSTRAINT genomes_pkey PRIMARY KEY (genome_id),
+    CONSTRAINT assembly_id_unique UNIQUE (assembly_id),
     CONSTRAINT genomes_tax_id_fkey FOREIGN KEY (tax_id) REFERENCES antismash.taxa (tax_id) ON DELETE SET NULL
 );
 COMMENT ON TABLE antismash.genomes IS
