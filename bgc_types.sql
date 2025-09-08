@@ -37,6 +37,7 @@ INSERT INTO antismash.bgc_types (term, description, category)
 SELECT val.term, val.description, val.parent_term
 FROM (
     VALUES
+        ('aureonuclemycin', 'Aureonuclemycins', 'other'),
         ('benzoxazole', 'Benzoxazoles', 'pks'),
         ('t1pks', 'Type I polyketide', 'pks'),
         ('t2pks', 'Type II polyketide', 'pks'),
@@ -59,6 +60,7 @@ FROM (
         ('thioamide-nrp', 'thioamide-containing non-ribosomal peptides', 'nrps'),
         ('napaa', 'non-alpha poly-amino acids', 'nrps'),
         ('mycosporine', 'mycosporine-like amino acid containing molecules', 'nrps'),
+        ('t3nrps-iterative', 'Iterative NRPS type III', 'nrps'),
         ('terpene', 'Terpene', 'terpene'),
         ('atropopeptide', 'Atropopeptide', 'ripp'),
         ('lanthipeptide-class-i', 'Class I lanthipeptide', 'ripp'),
@@ -127,7 +129,6 @@ FROM (
         ('hydrogen-cyanide', 'hydrogen cyanide', 'other'),
         ('hydroxytropolone', '7-hydroxytropolone-like cluster', 'other'),
         ('deazapurine', 'deazapurine containing secondary metabolites', 'other'),
-        ('tryptamine-related', 'tryptamine related compound', 'other'),
         ('nrps-like', 'Catches NRPS-like fragments that are not detected by the NRPS rule', 'nrps'),
         ('pks-like', 'Catches PKS-like fragments that are not detected by another PKS rule', 'pks'),
         ('transat-pks-like', 'Marks partial transAT-PKS clusters , specifically those with an AT-docking domain , but no AT domain .', 'pks'),
