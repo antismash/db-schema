@@ -55,7 +55,7 @@ INSERT INTO antismash.functional_classes (name, parent_id)
 SELECT val.name, f.functional_class_id
 FROM (
     VALUES
-        ('PPTase', 'transferases'),
+        ('pptase', 'transferases'),
         ('acetyltransferase', 'transferases'),
         ('acylase', 'transferases'),
         ('acyltransferase', 'transferases'),
